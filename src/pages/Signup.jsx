@@ -15,13 +15,16 @@ const Signup = () => {
   };
 
   const validationSchema = Yup.object({
-    username: Yup.string().required("Username is required"),
+    username: Yup.string().required("نام کاربری الزامی است"),
     password: Yup.string()
-      .min(4, "Password must be at least 4 characters")
-      .required("Password is required"),
+      .min(4, "رمز عبور باید حداقل ۴ کاراکتر باشد")
+      .required("رمز عبور الزامی است"),
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref("password"), null], "Passwords must match")
-      .required("Confirm Password is required"),
+      .oneOf(
+        [Yup.ref("password"), null],
+        "رمز عبور باید با تکرار رمز عبور مشابه باشد"
+      )
+      .required("تکرار رمز عبور الزامی است"),
   });
 
   const handleSubmit = async (values, { setSubmitting, setErrors }) => {
@@ -54,7 +57,7 @@ const Signup = () => {
     <>
       <h1>بوت کمپ بوتواستارت</h1>
       <div className={styles.container}>
-        <img src={Union} alt="" />
+        <img src={Union} alt="logo" />
         <h1 className={styles.title}>فرم ثبت نام</h1>
         <Formik
           initialValues={initialValues}
@@ -67,7 +70,11 @@ const Signup = () => {
                 <label>
                   <Field type="text" name="username" placeholder="نام کاربری" />
                 </label>
-                <ErrorMessage name="username" component="div" />
+                <ErrorMessage
+                  name="username"
+                  component="div"
+                  className={styles.errorMessage}
+                />
               </div>
               <div>
                 <label>
@@ -77,7 +84,11 @@ const Signup = () => {
                     placeholder="رمز عبور"
                   />
                 </label>
-                <ErrorMessage name="password" component="div" />
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className={styles.errorMessage}
+                />
               </div>
               <div>
                 <label>
@@ -87,7 +98,11 @@ const Signup = () => {
                     placeholder="تکرار رمز عبور"
                   />
                 </label>
-                <ErrorMessage name="confirmPassword" component="div" />
+                <ErrorMessage
+                  name="confirmPassword"
+                  component="div"
+                  className={styles.errorMessage}
+                />
               </div>
               {errors.apiError && (
                 <div className="error">{errors.apiError}</div>
