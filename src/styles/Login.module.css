@@ -22,7 +22,7 @@ h1 {
   margin: 16px auto 63px !important;
 }
 
-input {
+.container input {
   width: calc(100% - 60px);
   margin: 0 25px 16px 35px;
   height: 53px;

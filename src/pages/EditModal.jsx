@@ -61,10 +61,9 @@ const EditModal = ({
           {({ isSubmitting }) => (
             <Form>
               <div className={styles.formGroup}>
-                <label>
-                  نام کالا:
-                  <Field type="text" name="name" />
-                </label>
+                <label>نام کالا:</label>
+                <Field type="text" name="name" />
+
                 <ErrorMessage
                   name="name"
                   component="div"
@@ -73,10 +72,9 @@ const EditModal = ({
               </div>
 
               <div className={styles.formGroup}>
-                <label>
-                  تعداد موجودی:
-                  <Field type="number" name="quantity" />
-                </label>
+                <label>تعداد موجودی:</label>
+                <Field type="number" name="quantity" />
+
                 <ErrorMessage
                   name="quantity"
                   component="div"
@@ -85,10 +83,8 @@ const EditModal = ({
               </div>
 
               <div className={styles.formGroup}>
-                <label>
-                  قیمت:
-                  <Field type="number" name="price" />
-                </label>
+                <label>قیمت:</label>
+                <Field type="number" name="price" />
                 <ErrorMessage
                   name="price"
                   component="div"
